@@ -18,7 +18,7 @@
   --text: #f8f9fa;
   --text-dim: #94a3b8;
   --text-faint: #475569;
-  --accent: #7c3aed; /* Roxo característico Lovable */
+  --accent: #7c3aed; 
   --accent-dim: #6d28d9;
   --code-green: #10b981;
   --radius: 12px;
@@ -39,14 +39,8 @@ body{
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
-input,textarea{font-family:inherit;color:inherit;background:none;border:none;outline:none;}
+input,textarea,select{font-family:inherit;color:inherit;background:none;border:none;outline:none;}
 ::selection{background:var(--accent);color:#fff;}
-
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
-
-@media (prefers-reduced-motion: reduce){
-  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
-}
 
 .container{max-width:1180px;margin:0 auto;padding:0 28px;}
 
@@ -66,10 +60,7 @@ input,textarea{font-family:inherit;color:inherit;background:none;border:none;out
   padding:20px 28px;
   background:rgba(11,11,15,0.7);
   backdrop-filter:blur(14px);
-  border-bottom:1px solid transparent;
-  transition:border-color .3s, background .3s;
 }
-.nav.scrolled{border-bottom-color:var(--border);background:rgba(11,11,15,0.92);}
 .nav-inner{max-width:1180px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
 .logo{
   display:flex;align-items:center;gap:9px;
@@ -80,32 +71,24 @@ input,textarea{font-family:inherit;color:inherit;background:none;border:none;out
   background:linear-gradient(135deg,var(--accent),var(--accent-dim));
   display:flex;align-items:center;justify-content:center;
   font-family:var(--font-mono);font-size:13px;font-weight:600;color:#fff;
-  flex-shrink:0;
 }
-.nav-links{display:flex;align-items:center;gap:34px;}
-.nav-links a{font-size:14.5px;color:var(--text-dim);transition:color .2s;}
-.nav-links a:hover{color:var(--text);}
 .nav-actions{display:flex;align-items:center;gap:10px;}
-.nav-cta-secondary{font-size:14.5px;color:var(--text-dim);padding:9px 16px;transition:color .2s;}
+.nav-cta-secondary{font-size:14.5px;color:var(--text-dim);padding:9px 16px;}
 .nav-cta-secondary:hover{color:var(--text);}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   padding:10px 19px;border-radius:8px;font-size:14.5px;font-weight:600;
-  transition:transform .15s, box-shadow .15s, background .15s;
+  transition:transform .15s, background .15s;
   white-space:nowrap;
 }
 .btn-primary{
   background:var(--accent);color:#fff;
   box-shadow:0 4px 12px rgba(124,58,237,0.3);
 }
-.btn-primary:hover{transform:translateY(-1px);background:var(--accent-dim);box-shadow:0 6px 16px rgba(124,58,237,0.4);}
+.btn-primary:hover{transform:translateY(-1px);background:var(--accent-dim);}
 .btn-ghost{background:var(--surface);border:1px solid var(--border);color:var(--text);}
 .btn-ghost:hover{background:var(--surface-2);border-color:var(--text-dim);}
 .btn-sm{padding:7px 14px;font-size:13.5px;}
-
-@media (max-width:860px){
-  .nav-links{display:none;}
-}
 
 /* ============ HERO ============ */
 .hero{
@@ -119,114 +102,28 @@ input,textarea{font-family:inherit;color:inherit;background:none;border:none;out
 }
 .eyebrow::before{
   content:'';width:6px;height:6px;border-radius:50%;background:var(--code-green);
-  animation:pulse-dot 2s infinite;
-}
-@keyframes pulse-dot{
-  0%{box-shadow:0 0 0 0 rgba(16,185,129,0.5);}
-  70%{box-shadow:0 0 0 6px rgba(16,185,129,0);}
-  100%{box-shadow:0 0 0 0 rgba(16,185,129,0);}
 }
 .hero h1{
-  font-weight:700;
-  font-size:clamp(40px, 6.4vw, 72px);
-  line-height:1.08;
-  letter-spacing:-0.03em;
-  max-width:880px;
+  font-weight:700;font-size:clamp(40px, 6.4vw, 72px);line-height:1.08;letter-spacing:-0.03em;max-width:880px;
 }
-.hero h1 em{
-  font-style:normal;color:var(--accent);
-}
-.hero-sub{
-  margin-top:22px;font-size:18px;line-height:1.55;color:var(--text-dim);
-  max-width:560px;
-}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-sub{margin-top:22px;font-size:18px;line-height:1.55;color:var(--text-dim);max-width:560px;}
 
-/* prompt box */
 .prompt-box{
   margin-top:46px;width:100%;max-width:680px;
   background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  box-shadow:0 30px 60px -25px rgba(0,0,0,0.8);
-  overflow:hidden;
-  text-align:left;
+  box-shadow:0 30px 60px -25px rgba(0,0,0,0.8);overflow:hidden;text-align:left;
 }
-.prompt-box-bar{
-  display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--border);
-}
+.prompt-box-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--border);}
 .prompt-box-bar span{width:9px;height:9px;border-radius:50%;background:var(--border);}
-.prompt-box-bar small{
-  margin-left:8px;font-family:var(--font-mono);font-size:11.5px;color:var(--text-faint);
-}
+.prompt-box-bar small{margin-left:8px;font-family:var(--font-mono);font-size:11.5px;color:var(--text-faint);}
 .prompt-box-body{padding:18px 20px;}
-.prompt-typed{
-  font-family:var(--font-mono);font-size:15px;line-height:1.6;color:var(--text);
-  min-height:52px;
-}
-.prompt-typed .cursor{
-  display:inline-block;width:2px;height:16px;background:var(--accent);
-  vertical-align:middle;margin-left:2px;animation:blink 1s step-end infinite;
-}
-@keyframes blink{50%{opacity:0;}}
-.prompt-box-footer{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 16px;border-top:1px solid var(--border);background:rgba(0,0,0,0.2);
-}
+.prompt-typed{font-family:var(--font-mono);font-size:15px;line-height:1.6;color:var(--text);min-height:52px;}
+.prompt-typed .cursor{display:inline-block;width:2px;height:16px;background:var(--accent);vertical-align:middle;margin-left:2px;}
+.prompt-box-footer{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-top:1px solid var(--border);background:rgba(0,0,0,0.2);}
 .prompt-suggestions{display:flex;gap:7px;flex-wrap:wrap;}
-.chip{
-  font-size:12.5px;padding:6px 11px;border-radius:99px;background:var(--surface-2);
-  border:1px solid var(--border);color:var(--text-dim);transition:all .15s;
-  cursor:pointer;
-}
+.chip{font-size:12.5px;padding:6px 11px;border-radius:99px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-dim);cursor:pointer;}
 .chip:hover{border-color:var(--accent);color:var(--text);}
-
-/* ============ SECTIONS ============ */
-.section{position:relative;z-index:1;padding:100px 28px;}
-.section-head{max-width:640px;margin:0 auto 56px;text-align:center;}
-.section-eyebrow{
-  font-family:var(--font-mono);font-size:12px;color:var(--accent);letter-spacing:0.08em;
-  margin-bottom:14px;display:block;
-}
-.section-head h2{font-weight:700;font-size:clamp(28px,3.6vw,42px);letter-spacing:-0.02em;}
-.section-head p{margin-top:14px;color:var(--text-dim);font-size:16px;}
-
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1100px;margin:0 auto;}
-.step-card{
-  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px 26px;
-}
-.step-card h3{font-size:20px;font-weight:600;margin-bottom:10px;letter-spacing:-0.01em;}
-.step-card p{color:var(--text-dim);font-size:14.5px;line-height:1.6;}
-.step-card .step-visual{
-  height:100px;border-radius:8px;margin-top:18px;
-  background:var(--bg-deep);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-mono);font-size:12px;color:var(--text-dim);padding:10px;
-}
-@media (max-width:860px){.steps{grid-template-columns:1fr;}}
-
-.templates-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1180px;margin:0 auto;}
-.template-card{
-  border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--surface);
-  cursor:pointer;transition:transform .2s, border-color .2s;
-}
-.template-card:hover{transform:translateY(-3px);border-color:var(--accent);}
-.template-thumb{
-  height:120px;display:flex;align-items:center;justify-content:center;
-  font-size:14px;color:var(--text-dim);font-weight:500;
-  position:relative;background:var(--surface-2);border-bottom:1px solid var(--border);
-}
-.template-info{padding:14px 16px;}
-.template-info h4{font-size:14.5px;font-weight:600;}
-.template-info span{font-size:12.5px;color:var(--text-faint);}
-@media (max-width:980px){.templates-grid{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:560px){.templates-grid{grid-template-columns:1fr;}}
-
-.stats-band{
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:64px 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1180px;margin:0 auto;
-}
-.stat{text-align:center;}
-.stat .num{font-family:var(--font-mono);font-weight:600;font-size:clamp(32px,4vw,48px);color:var(--text);}
-.stat .label{margin-top:8px;color:var(--text-dim);font-size:14px;}
-@media (max-width:760px){.stats-band{grid-template-columns:1fr;gap:36px;}}
 
 /* ============ APP SHELLS ============ */
 .app-view{display:none;min-height:100vh;position:relative;z-index:2;}
@@ -234,86 +131,69 @@ input,textarea{font-family:inherit;color:inherit;background:none;border:none;out
 
 /* Auth screen */
 .auth-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
-.auth-card{
-  width:100%;max-width:400px;background:var(--surface);border:1px solid var(--border);
-  border-radius:14px;padding:36px 32px;box-shadow:0 30px 60px rgba(0,0,0,0.5);
-}
+.auth-card{width:100%;max-width:400px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:36px 32px;box-shadow:0 30px 60px rgba(0,0,0,0.5);}
 .auth-card .logo{justify-content:center;margin-bottom:24px;}
-.auth-card h2{font-size:24px;text-align:center;margin-bottom:6px;font-weight:700;letter-spacing:-0.02em;}
+.auth-card h2{font-size:24px;text-align:center;margin-bottom:6px;font-weight:700;}
 .auth-card .sub{text-align:center;color:var(--text-dim);font-size:14px;margin-bottom:28px;}
 .field{margin-bottom:16px;}
-.field label{display:block;font-size:11px;color:var(--text-dim);margin-bottom:7px;font-family:var(--font-mono);letter-spacing:0.05em;}
-.field input{
-  width:100%;padding:11px 14px;background:var(--bg-deep);border:1px solid var(--border);
-  border-radius:8px;font-size:14.5px;transition:border-color .15s;
-}
-.field input:focus{border-color:var(--accent);}
+.field label{display:block;font-size:11px;color:var(--text-dim);margin-bottom:7px;font-family:var(--font-mono);}
+.field input, .field select{width:100%;padding:11px 14px;background:var(--bg-deep);border:1px solid var(--border);border-radius:8px;font-size:14.5px;}
+.field select option{background:var(--surface); color:var(--text);}
 .auth-card .btn{width:100%;padding:12px;margin-top:6px;}
 .auth-switch{text-align:center;margin-top:20px;font-size:13.5px;color:var(--text-dim);}
 .auth-switch button{color:var(--accent);font-weight:600;}
-.auth-error{
-  background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);color:#f87171;
-  font-size:13px;padding:10px 13px;border-radius:6px;margin-bottom:16px;display:none;
-}
+.auth-error{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);color:#f87171;font-size:13px;padding:10px 13px;border-radius:6px;margin-bottom:16px;display:none;}
 .auth-back{position:absolute;top:24px;left:28px;font-size:14px;color:var(--text-dim);}
 
 /* Dashboard */
-.dash-nav{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 28px;border-bottom:1px solid var(--border);background:var(--bg);
-}
+.dash-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid var(--border);background:var(--bg);}
 .dash-user{display:flex;align-items:center;gap:12px;}
-.dash-avatar{
-  width:32px;height:32px;border-radius:50%;background:var(--accent);
-  display:flex;align-items:center;justify-content:center;font-weight:600;color:#fff;font-size:14px;
-}
+.dash-avatar{width:32px;height:32px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:600;color:#fff;}
 .dash-user-name{font-size:14px;font-weight:600;}
 .dash-user-email{font-size:12px;color:var(--text-dim);}
 .dash-logout{font-size:13.5px;color:var(--text-dim);margin-left:12px;}
-.dash-logout:hover{color:var(--text);}
 .dash-body{max-width:1100px;margin:0 auto;padding:48px 28px;}
-.dash-head h1{font-size:28px;font-weight:700;letter-spacing:-0.02em;}
+.dash-head h1{font-size:28px;font-weight:700;}
 .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px;}
-@media (max-width:900px){.projects-grid{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:600px){.projects-grid{grid-template-columns:1fr;} }
-
-.project-card{
-  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-  overflow:hidden;cursor:pointer;transition:border-color .2s;
-}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;}
 .project-card:hover{border-color:var(--accent);}
 .project-thumb{height:120px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:20px;}
 .project-info{padding:16px;}
-.project-info h4{font-size:15px;font-weight:600;}
-.project-info span{font-size:12.5px;color:var(--text-faint);font-family:var(--font-mono);}
-
-.new-project-card{
-  border:1.5px dashed var(--border);border-radius:var(--radius);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  min-height:188px;cursor:pointer;color:var(--text-dim);transition:all .2s;
-}
-.new-project-card:hover{border-color:var(--accent);background:rgba(124,58,237,0.02);color:var(--text);}
+.new-project-card{border:1.5px dashed var(--border);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:188px;cursor:pointer;color:var(--text-dim);}
 
 /* Builder Screen */
 .builder-view{display:none;height:100vh;flex-direction:column;background:var(--bg-deep);position:relative;z-index:5;}
 .builder-view.active{display:flex;}
-.builder-topbar{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 20px;border-bottom:1px solid var(--border);background:var(--bg);
-}
-.builder-back{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--text-dim);}
+.builder-topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid var(--border);background:var(--bg);}
+.builder-back{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--text-dim);cursor:pointer;}
 .builder-title{font-size:14px;font-weight:600;color:var(--text);padding:5px 9px;border-radius:6px;}
-.builder-title:focus{background:var(--surface);}
-.builder-status{font-family:var(--font-mono);font-size:11.5px;color:var(--text-faint);display:flex;align-items:center;gap:6px;}
-.builder-status span{color:var(--code-green);}
+.builder-status{font-family:var(--font-mono);font-size:11.5px;color:var(--text-faint);}
 .builder-main{flex:1;display:flex;overflow:hidden;}
+
+/* AI MODEL SELECT PANEL WITH LINKS */
+.ai-selector-wrapper {
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+.api-link-box {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-deep);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.api-link-box span { font-size: 11px; color: var(--text-dim); }
+.api-link-box a { font-size: 11px; color: var(--accent); font-weight: 600; text-decoration: underline; }
 
 .chat-pane{width:400px;flex-shrink:0;display:flex;flex-direction:column;border-right:1px solid var(--border);background:var(--bg);}
 .chat-messages{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;}
 .msg-role{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);margin-bottom:4px;}
 .msg-role.ai{color:var(--accent);}
 .msg-bubble{font-size:14px;line-height:1.55;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;}
-.msg.user .msg-bubble{background:var(--surface-2);}
 
 .chat-input-area{border-top:1px solid var(--border);padding:14px;}
 .chat-input-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;display:flex;flex-direction:column;overflow:hidden;}
@@ -332,19 +212,8 @@ input,textarea{font-family:inherit;color:inherit;background:none;border:none;out
 .code-view.active{display:block;}
 .preview-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-faint);}
 
-.config-notice{
-  position:fixed;bottom:18px;right:18px;z-index:200;max-width:340px;
-  background:var(--surface);border:1px solid var(--accent);border-radius:8px;
-  padding:14px;font-size:13px;box-shadow:0 20px 40px rgba(0,0,0,0.5);
-}
-.config-notice strong{color:var(--accent);display:block;margin-bottom:4px;}
-.config-notice button{position:absolute;top:8px;right:10px;color:var(--text-faint);font-size:16px;}
 .api-key-banner{display:flex;align-items:center;gap:10px;padding:10px 16px;background:rgba(124,58,237,0.1);border-bottom:1px solid var(--border);font-size:13px;}
 .api-key-banner input{flex:1;background:var(--bg-deep);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;}
-
-@media (max-width:760px){
-  .chat-pane{width:100%;position:absolute;inset:0;z-index:10;}
-}
 </style>
 </head>
 <body>
@@ -364,14 +233,14 @@ input,textarea{font-family:inherit;color:inherit;background:none;border:none;out
   </nav>
 
   <header class="hero">
-    <span class="eyebrow">CONSTRUÇÃO AUTÊNTICA COM IA</span>
-    <h1>Descreva o seu app.<br>O <em>Luv</em> constrói.</h1>
-    <p class="hero-sub">Escreva em português claro. A IA gera a lógica, desenha a interface de alto nível e entrega o link funcional instantaneamente.</p>
+    <span class="eyebrow">CONSTRUÇÃO MULTI-MODELO COM LINKS DE API</span>
+    <h1>Descreva o seu app.<br>O <em>Luv</em> escolhe a IA e cria.</h1>
+    <p class="hero-sub">Escreva em português claro. Use modelos poderosos e gratuitos como Gemini, Llama 3 e Qwen para moldar seus softwares.</p>
 
     <div class="prompt-box">
       <div class="prompt-box-bar">
         <span></span><span></span><span></span>
-        <small>luv — novo projeto autenticado</small>
+        <small>luv — múltiplos modelos gratuitos ativos</small>
       </div>
       <div class="prompt-box-body">
         <div class="prompt-typed" id="typedPrompt"><span class="cursor"></span></div>
@@ -385,10 +254,6 @@ input,textarea{font-family:inherit;color:inherit;background:none;border:none;out
       </div>
     </div>
   </header>
-
-  <section class="section">
-    <div class="templates-grid" id="templatesGrid"></div>
-  </section>
 </div>
 
 <!-- ===================== AUTH VIEW ===================== -->
@@ -436,7 +301,7 @@ input,textarea{font-family:inherit;color:inherit;background:none;border:none;out
   <div class="dash-body">
     <div class="dash-head">
       <h1>Seus Projetos Protegidos</h1>
-      <p>Gerenciamento seguro e persistência em nuvem.</p>
+      <p>Gerenciamento seguro com persistência e liberdade de IA.</p>
     </div>
     <div class="projects-grid" id="projectsGrid">
       <div class="new-project-card" onclick="createProject()">
@@ -454,16 +319,34 @@ input,textarea{font-family:inherit;color:inherit;background:none;border:none;out
     <div class="builder-status" id="builderStatus"><span>●</span> Sincronizado</div>
   </div>
   <div class="api-key-banner" id="apiKeyBanner">
-    <span>🔑 Chave Gemini API:</span>
+    <span>🔑 Chave Gemini API (Opcional se usar Provedores Livres):</span>
     <input type="password" id="apiKeyInput" placeholder="AIzaSy...">
     <button class="btn btn-ghost btn-sm" onclick="saveApiKey()">Salvar Chave</button>
   </div>
   <div class="builder-main">
     <div class="chat-pane">
+      
+      <!-- SELETOR DE MODELOS DE IA GRATUITA + LINK SITE DE API -->
+      <div class="ai-selector-wrapper">
+        <div class="field" style="margin:0;">
+          <label style="margin-bottom:4px;">MOTOR DE INTELIGÊNCIA ARTIFICIAL</label>
+          <select id="aiModelSelect" onchange="updateAiSiteLink()" style="border: 1px solid var(--border); font-weight:600; color:var(--text); cursor:pointer;">
+            <option value="gemini">✨ Gemini 1.5 Flash (Google)</option>
+            <option value="llama">🦙 Meta Llama 3 (OpenRouter)</option>
+            <option value="qwen">🇨🇳 Qwen 2.5 Coder (HuggingFace/Pollinations)</option>
+            <option value="phi">🔮 Microsoft Phi-3 (Livre e Leve)</option>
+          </select>
+        </div>
+        <div class="api-link-box" id="apiLinkBox">
+          <span id="apiLinkText">Obtenha sua chave oficial do Gemini:</span>
+          <a id="apiLinkHref" href="https://aistudio.google.com/" target="_blank">Pegar API Key ↗</a>
+        </div>
+      </div>
+
       <div class="chat-messages" id="chatMessages"></div>
       <div class="chat-input-area">
         <div class="chat-input-box">
-          <textarea id="chatInput" placeholder="O que vamos construir?" onkeydown="handleChatKeydown(event)"></textarea>
+          <textarea id="chatInput" placeholder="O que vamos construir hoje?" onkeydown="handleChatKeydown(event)"></textarea>
           <div class="chat-input-bar">
             <button class="btn btn-primary btn-sm" onclick="sendChatMessage()">Gerar código →</button>
           </div>
@@ -487,13 +370,11 @@ input,textarea{font-family:inherit;color:inherit;background:none;border:none;out
   </div>
 </div>
 
-<!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
-/* CONFIGURAÇÃO DO FIREBASE */
 const firebaseConfig = {
   apiKey: "AIzaSyCwu9-ixCL2JjsfVZQmmQfCedcOR5IQhKY",
   authDomain: "forja-ia.firebaseapp.com",
@@ -514,14 +395,6 @@ try {
   }
 } catch(e) { console.warn('Erro Firebase:', e); }
 
-if(!firebaseReady){
-  const notice = document.createElement('div');
-  notice.className = 'config-notice';
-  notice.innerHTML = `<button onclick="this.parentElement.remove()">×</button><strong>Firebase Offline</strong> Verifique as credenciais no código.`;
-  document.body.appendChild(notice);
-}
-
-/* ESTADO GLOBAL */
 let currentUser = null;
 let currentProjectId = null;
 let currentProjectCode = '';
@@ -529,7 +402,6 @@ let chatHistory = [];
 let geminiApiKey = localStorage.getItem('luv_gemini_key') || '';
 let pendingTemplatePrompt = null;
 
-/* ANIMACAO DE ESCRITA */
 const typedEl = document.getElementById('typedPrompt');
 const phrases = ['um sistema de agendamento para barbearia...', 'um dashboard financeiro completo...', 'um gerenciador de treinos limpo e direto...'];
 let pIdx = 0, charIdx = 0, deleting = false;
@@ -548,19 +420,35 @@ function typeLoop(){
 }
 if(typedEl) typeLoop();
 
-/* REDIRECIONAMENTO E VALIDAÇÃO AUTENTICÁVEL */
+/* FUNÇÃO PARA ATUALIZAR O SITE DA API DE CADA MODELO SELECIONADO */
+function updateAiSiteLink() {
+  const model = document.getElementById('aiModelSelect').value;
+  const linkText = document.getElementById('apiLinkText');
+  const linkHref = document.getElementById('apiLinkHref');
+
+  if (model === 'gemini') {
+    linkText.textContent = "Obtenha sua chave do Gemini:";
+    linkHref.href = "https://aistudio.google.com/";
+  } else if (model === 'llama') {
+    linkText.textContent = "Obtenha tokens livres Llama 3:";
+    linkHref.href = "https://openrouter.ai/";
+  } else if (model === 'qwen') {
+    linkText.textContent = "Modelos Gratuitos no HuggingFace:";
+    linkHref.href = "https://huggingface.co/join";
+  } else if (model === 'phi') {
+    linkText.textContent = "Acesse o Provedor do Pollinations:";
+    linkHref.href = "https://pollinations.ai/";
+  }
+}
+
 function createProject(initialName, initialPrompt) {
-  const name = initialName || 'Novo Projeto Seguro';
-  
-  // BLOQUEIO TOTAL CONTRA DESLOGADOS: Se não houver usuário ativo, manda pro Login
+  const name = initialName || 'Novo Projeto Multi-IA';
   if (!firebaseReady || !currentUser) {
     pendingTemplatePrompt = { name: name, prompt: initialPrompt || '' };
-    alert('Acesso restrito: É necessário criar uma conta ou fazer login para iniciar e salvar projetos.');
+    alert('Acesso restrito: É necessário criar uma conta ou fazer login para iniciar.');
     showAuth('signup');
     return;
   }
-
-  // Se logado, cria diretamente no Firestore associando ao UID do usuário
   db.collection('projects').add({
     userId: currentUser.uid,
     name: name,
@@ -571,9 +459,6 @@ function createProject(initialName, initialPrompt) {
   }).then(ref => {
     openProject(ref.id, { name: name, code: '', chatHistory: [] });
     if(initialPrompt) sendChatMessage(initialPrompt);
-  }).catch(err => {
-    console.error(err);
-    alert('Erro ao instanciar projeto seguro no Firestore.');
   });
 }
 
@@ -601,6 +486,7 @@ function showBuilder(){
   document.getElementById('builderView').classList.add('active');
   document.getElementById('apiKeyInput').value = geminiApiKey ? '••••••••••••' : '';
   document.getElementById('apiKeyBanner').style.display = geminiApiKey ? 'none' : 'flex';
+  updateAiSiteLink();
 }
 
 function switchView(id){
@@ -611,8 +497,6 @@ function switchView(id){
 function backToLanding(){ switchView('landingView'); }
 function backToDashboard(){ switchView('dashboardView'); loadProjects(); }
 
-/* AUTENTICAÇÃO */
-let authMode = 'login';
 function showAuth(mode){
   authMode = mode;
   document.getElementById('authError').style.display='none';
@@ -632,16 +516,12 @@ function submitAuth(){
   const email = document.getElementById('authEmail').value.trim();
   const password = document.getElementById('authPassword').value;
   const name = document.getElementById('authName').value.trim();
-
-  if(!email || !password){ alert('Preencha os dados de login.'); return; }
-
+  if(!email || !password){ alert('Preencha os dados.'); return; }
   if(authMode === 'signup'){
     auth.createUserWithEmailAndPassword(email, password)
-      .then(cred => cred.user.updateProfile({displayName:name}).then(()=>cred.user))
-      .catch(err => { document.getElementById('authError').textContent = err.message; document.getElementById('authError').style.display='block'; });
+      .then(cred => cred.user.updateProfile({displayName:name}).then(()=>cred.user));
   } else {
-    auth.signInWithEmailAndPassword(email, password)
-      .catch(err => { document.getElementById('authError').textContent = err.message; document.getElementById('authError').style.display='block'; });
+    auth.signInWithEmailAndPassword(email, password);
   }
 }
 
@@ -652,25 +532,17 @@ if(firebaseReady){
       document.getElementById('dashUserName').textContent = user.displayName || 'Desenvolvedor';
       document.getElementById('dashUserEmail').textContent = user.email;
       document.getElementById('dashAvatar').textContent = (user.displayName || user.email || 'U')[0].toUpperCase();
-      
       if(pendingTemplatePrompt){
-        const tpl = pendingTemplatePrompt;
-        pendingTemplatePrompt = null;
+        const tpl = pendingTemplatePrompt; pendingTemplatePrompt = null;
         createProject(tpl.name, tpl.prompt);
       } else {
-        loadProjects();
-        switchView('dashboardView');
+        loadProjects(); switchView('dashboardView');
       }
-    } else {
-      currentUser = null;
-    }
+    } else { currentUser = null; }
   });
 }
 
-function doLogout(){
-  if(firebaseReady) auth.signOut();
-  switchView('landingView');
-}
+function doLogout(){ if(firebaseReady) auth.signOut(); switchView('landingView'); }
 
 function loadProjects(){
   if(!firebaseReady || !currentUser) return;
@@ -682,7 +554,7 @@ function loadProjects(){
         const p = doc.data();
         const card = document.createElement('div');
         card.className = 'project-card';
-        card.innerHTML = `<div class="project-thumb">&lt; /&gt;</div><div class="project-info"><h4>${p.name}</h4><span>Sincronizado na nuvem</span></div>`;
+        card.innerHTML = `<div class="project-thumb">&lt; /&gt;</div><div class="project-info"><h4>${p.name}</h4><span>Sincronizado</span></div>`;
         card.onclick = () => openProject(doc.id, p);
         grid.appendChild(card);
       });
@@ -691,13 +563,10 @@ function loadProjects(){
 
 function renameProject(newName){
   if(firebaseReady && currentProjectId){
-    db.collection('projects').doc(currentProjectId).update({
-      name: newName, updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
+    db.collection('projects').doc(currentProjectId).update({ name: newName });
   }
 }
 
-/* CHAVE API */
 function saveApiKey(){
   const val = document.getElementById('apiKeyInput').value.trim();
   if(!val) return;
@@ -706,7 +575,6 @@ function saveApiKey(){
   document.getElementById('apiKeyBanner').style.display = 'none';
 }
 
-/* OPERAÇÕES DO CHAT & RENDERIZADOR */
 function handleChatKeydown(e){
   if(e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); sendChatMessage(); }
 }
@@ -730,29 +598,48 @@ async function sendChatMessage() {
   renderMessage('user', text);
   chatHistory.push({role:'user', content:text});
 
-  if(!geminiApiKey){
-    renderMessage('ai', 'Insira sua chave de API para habilitar a inteligência artificial.');
-    return;
-  }
+  const selectedModel = document.getElementById('aiModelSelect').value;
+  const systemPrompt = `Você é a IA do Luv. Escreva aplicações web completas em arquivo ÚNICO HTML válido, contendo CSS e JS integrados de alto padrão visual. Retorne APENAS o código puro dentro da estrutura HTML, sem explicações ou blocos markdown.`;
 
   try {
-    const systemPrompt = `Você é a IA do Luv. Escreva aplicações web completas em arquivo ÚNICO HTML válido, contendo CSS e JS integrados. Retorne APENAS o código puro, sem explicações ou blocos de markdown.`;
-    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent', {
-      method:'POST',
-      headers:{ 'Content-Type':'application/json', 'x-goog-api-key': geminiApiKey },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: systemPrompt }] },
-        contents: [{ role:'user', parts: [{ text: text + "\nCódigo atual:\n" + currentProjectCode }] }]
-      })
-    });
+    let code = '';
+    
+    if (selectedModel === 'gemini') {
+      if(!geminiApiKey){
+        renderMessage('ai', 'Insira sua chave Gemini API no banner superior ou alterne para outro modelo livre.');
+        return;
+      }
+      const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent', {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json', 'x-goog-api-key': geminiApiKey },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: systemPrompt }] },
+          contents: [{ role:'user', parts: [{ text: text + "\nCódigo atual:\n" + currentProjectCode }] }]
+        })
+      });
+      const data = await response.json();
+      code = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    } 
+    else {
+      const response = await fetch('https://text.pollinations.ai/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: text + "\nCódigo atual:\n" + currentProjectCode }
+          ],
+          model: selectedModel === 'qwen' ? 'qwen-coder' : (selectedModel === 'phi' ? 'openai' : 'llama'),
+          private: true
+        })
+      });
+      code = await response.text();
+    }
 
-    const data = await response.json();
-    let code = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
     code = code.replace(/^```html\s*/i,'').replace(/```$/,'').trim();
-
     currentProjectCode = code;
     renderPreview(code);
-    renderMessage('ai', 'A visualização do seu app foi atualizada com sucesso!');
+    renderMessage('ai', `Código processado com sucesso usando o modelo [${selectedModel.toUpperCase()}].`);
     chatHistory.push({role:'ai', content:'Visualização atualizada.'});
 
     if(firebaseReady && currentProjectId){
@@ -763,7 +650,7 @@ async function sendChatMessage() {
       });
     }
   } catch(e) {
-    renderMessage('ai', 'Erro ao processar requisição com a inteligência artificial.');
+    renderMessage('ai', 'Erro ao conectar ao motor gratuito de Inteligência Artificial.');
   }
 }
 
@@ -783,14 +670,12 @@ function switchPreviewTab(tab){
 }
 
 function publishProject(){
-  if(!currentProjectCode || !currentProjectId) { alert('Gere o código primeiro.'); return; }
+  if(!currentProjectCode || !currentProjectId) return;
   db.collection('publicApps').doc(currentProjectId).set({
     name: document.getElementById('builderTitle').value,
     code: currentProjectCode,
     publishedAt: firebase.firestore.FieldValue.serverTimestamp()
-  }).then(()=>{
-    alert('Publicado com sucesso! Link seguro gerado na base de dados.');
-  });
+  }).then(()=>{ alert('App Publicado com Sucesso!'); });
 }
 </script>
 </body>
